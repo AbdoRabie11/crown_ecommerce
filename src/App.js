@@ -1,37 +1,20 @@
 import "./App.css";
-import './categories.styles.scss';
-import Directory from "./components/directory/directory";
+import "./categories.styles.scss";
+import { Routes, Route } from "react-router-dom";
+import Navigation from './routes/Navigation'
+import Home from "./routes/Home";
+const Ap2 = () => {
+  return <h3>hello from react i am the shop page </h3>;
+};
 
-const categories = [
-  {
-    id: 1,
-    title: "hats",
-    imageUrl: "https://i.ibb.co/cvpntL1/hats.png"
-  },
-  {
-    id: 2,
-    title: "jackets",
-    imageUrl: "https://i.ibb.co/px2tCc3/jackets.png"
-  },
-  {
-    id: 3,
-    title: "sneakers",
-    imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png"
-  },
-  {
-    id: 4,
-    title: "womens",
-    imageUrl: "https://i.ibb.co/GCCdy8t/womens.png"
-  },
-  {
-    id: 5,
-    title: "mens",
-    imageUrl: "https://i.ibb.co/R70vBrQ/men.png"
-  }
-]
 function App() {
   return (
-    <Directory  categories={categories}/>
+    <Routes>
+      <Route path="/" element={<Navigation />}>
+        <Route index path="home" element={<Home />} />;
+        <Route path="shop" element={<Ap2 />} />;
+      </Route>
+    </Routes>
   );
 }
 
